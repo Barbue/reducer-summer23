@@ -20,10 +20,10 @@ export default function counterReducer(state, action) {
             // return 0
             //---------
             return state - 1 
-        case 'add':
+        case 'Add':
             // console.log(action.value)
             return state + action.value
-        case 'subtract':
+        case 'Subtract':
             return state - action.value
         default:  //we do not want to get here
             alert('Not a type')

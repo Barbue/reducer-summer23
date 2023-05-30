@@ -10,6 +10,8 @@ function App() {
 
   const [inputValue, setInputValue] = useState(0)
 
+  const mathArr = ['Add', 'Subtract', 'Multiply', 'Divide', 'Power', 'Remainder', 'Square Root']
+
   return (
     <div className="App App-header">
       <h1>Counter: {counter}</h1>
@@ -38,7 +40,7 @@ function App() {
           type: 'decrement'
         })
       }>--Decrement--</button>
-
+{/* 
       <button onClick={
         () => dispatch({
           type: 'add',
@@ -51,7 +53,23 @@ function App() {
           type: 'subtract',
           value: inputValue
         })
-      }>-Subtract-</button>
+      }>-Subtract-</button> */}
+      {
+        mathArr.map((element) => {
+          return (
+            <button
+              onClick={
+                ()=> dispatch({
+                  type: element,
+                  value: inputValue
+                })
+              }
+            >{element} {' '} {inputValue}
+            </button>
+          )
+          
+        })
+      }
 
     </div>
   );
