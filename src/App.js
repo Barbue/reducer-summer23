@@ -8,10 +8,15 @@ function App() {
   const [counter, dispatch] = useReducer( counterReducer, 20 )  
   //useReducer takes in 2 parameters, the reducers, and the initial value
 
+  const [inputValue, setInputValue] = useState(0)
 
   return (
     <div className="App App-header">
       <h1>Counter: {counter}</h1>
+      <input 
+        type='number' 
+        onChange={(e) => setInputValue(parseInt(e.target.value))}
+      />
       <button onClick={
         // () => dispatch({}) // the object is "action" in the reducer function
         () => dispatch({
@@ -23,6 +28,31 @@ function App() {
         () => dispatch({
           type: 42
         })}>The Ultimate Answer</button>
+      <button onClick={
+        () => dispatch({
+          type: 'increment'
+        })
+      }>++Increment++</button>
+      <button onClick={
+        () => dispatch({
+          type: 'decrement'
+        })
+      }>--Decrement--</button>
+
+      <button onClick={
+        () => dispatch({
+          type: 'add',
+          value: inputValue
+        })
+      }>+Add+</button>
+
+    <button onClick={
+        () => dispatch({
+          type: 'subtract',
+          value: inputValue
+        })
+      }>-Subtract-</button>
+
     </div>
   );
 }
