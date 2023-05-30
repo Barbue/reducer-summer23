@@ -25,6 +25,17 @@ export default function counterReducer(state, action) {
             return state + action.value
         case 'Subtract':
             return state - action.value
+        case  'Multiply':
+            return state * action.value
+        case  'Divide':
+            return state / action.value
+        case  'Power':
+            return state ** action.value
+        case  'Remainder':
+            return state % action.value
+        case 'Square Root':
+            return Math.sqrt(state)
+            
         default:  //we do not want to get here
             alert('Not a type')
     }
